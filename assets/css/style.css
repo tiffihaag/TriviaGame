@@ -1,0 +1,58 @@
+body {
+	background-image: url("../images/background.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.trivia {
+	top: -260px;
+	left: 68px;
+	position: relative;
+
+}
+
+.replayButton {
+	position: relative;
+	left: 68px;	
+	top: -110px;
+	cursor: pointer;
+}
+
+.header {
+	height: 150px;
+	margin-top: 20px;
+	margin-bottom: -20px;
+	text-align: center;
+	padding-bottom: -20px;
+	background-image: url("../images/xfileslogo.jpg");
+	filter: alpha(opacity=50);
+	background-repeat: no-repeat;
+	height: 300px;
+	border-radius: 8px;
+	width: 1000px;
+}
+
+.gameBox {
+	position: relative;
+	background-color: #cccccc;
+	opacity: .45;
+	height: 400px;
+	margin-top: -75px;
+	border-radius: 8px;
+	padding: 20px;
+	width: 1000px;
+}
+
+p {
+	font-size: 22px;
+	color: blue;
+}
+.questionField {
+	color: black;
+	font-size: 22px;
+	opacity: 1;
+}
+
+.container {
+	width: 1000px;
+}
