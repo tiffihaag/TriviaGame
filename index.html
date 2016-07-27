@@ -11,24 +11,42 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   	<!-- Pull in my Javascript File -->
-  	<script src="assets/javascript/starwarsgame.js"></script>
+  	<script src="assets/javascript/app.js"></script>
 
 	<!-- Pull in my CSS File -->
   	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+
   <div class="container">
     <div class="header"></div>
 
     <h1 class="trivia"><strong>Trivia Game</strong></h1>
 
-    <h4 class="replayButton">Click here to replay!</h4>
+    <h4 class="replayButton">Made By: Tiffany Haag</h4>
 
     <div class="gameBox">
-        <p> Time Remaining: </p> <span class="timeRemaining"></span>
+      <button id="start">Start</button>
+      <div id="TimeRemaining"></div>
+        
         <div class="questionField"></div>
+        <h2 id="question"></h2>
+        <button class="Option" id="Option1"></button><br>
+        <button class="Option" id="Option2"></button><br>
+        <button class="Option" id="Option3"></button><br> 
+        <button class="Option" id="Option4"></button>
+
+        <div class="giffy"></div>
+        <span class="GIF1"><source src="assets/images/theory.gif" height= 200px; width= 200px;></span>
+        <span class="GIF2"><source src="assets/images/engrossed.gif" height= 200px; width= 200px;></span>
+        <span class="GIF3"><source src="assets/images/essentially.gif" height= 200px; width= 200px;></span>
+        <span class="GIF4"><source src="assets/images/internetnotgoodforyou.gif" height= 200px; width= 200px;></span>
+        <span class="GIF5"><source src="assets/images/amonster.gif" height= 200px; width= 200px;></span>
+        <span class="GIF6"><source src="assets/images/elvischip.gif" height= 200px; width= 200px;></span>
     </div>
+
+    <div id="time"></div>
 
 </div> <!--goes with container div-->
 
