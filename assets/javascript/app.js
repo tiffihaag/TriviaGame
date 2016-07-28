@@ -1,6 +1,7 @@
 //Variables & doc ready
 $(document).ready(function(){
 	$(".Option").hide();
+	$(".giffy").hide();
 
 	var questions = [
 		"Who was Mulder's first secret informant?",
@@ -48,15 +49,24 @@ $(document).ready(function(){
 		];
 
 	var answer = [
-		"Deep Throat",
+		0,
 		0,
 		1,
-		0,
 		1,
+		0,
 		1
 		];
 
 	var count = 0;
+
+	var prettyPic = [
+		"assets/images/theory.gif",
+		"assets/images/engrossed.gif",
+		"assets/images/essentially.gif",
+		"assets/images/internetnotgoodforyou.gif",
+		"assets/images/amonster.gif",
+		"assets/images/elvischip.gif"
+		];
 
 	//Start button & Questions
 	$("#start").click(function(){
@@ -64,28 +74,40 @@ $(document).ready(function(){
         $(".Option").show();
         $(".questionField").show();
         $("#question").html(questions[count]);
-  		$("#Option1").html(option1[count]);
-  		$("#Option2").html(option2[count]);
-  		$("#Option3").html(option3[count]);
-  		$("#Option4").html(option4[count]);
+  		$("#0").html(option1[count]);
+  		$("#1").html(option2[count]);
+  		$("#2").html(option3[count]);
+  		$("#3").html(option4[count]);
     });
 
 	//Check to see if correct
 	$(".Option").click(function(){ 
-		var selected = $(this).val();
+		var selected = $(this).attr("id");
 		console.log (this);
+		console.log (selected);
 		
+		$(".giffy").show();
+		$(".giffy").html('<img src="'+ prettyPic[count] + '" height= "200"; width= "230">');
+
 		if (selected == answer[count]) {
 			//put gif in here
-			alert("Correct!");
+			$("<h3> Correct </h3>").prependTo(".giffy");
+			//var prettyPic = ".GIF" + count;
+			//$(prettyPic).appendTo(".giffy");
+			//put pause here
 			count++;
 		}
 		else {
-			alert("Wrong Guess.");
+			$("<h3> Wrong </h3>").prependTo(".giffy");
 			count++;
 		}
 
 		//Check to see it's the last question
+	});	
+
+	$(".giffy").click(function(){ 
+		$(".giffy").hide();
+		$(".giffy").empty();
 			if(count == questions.length) {
 				$(".Option").hide();
        			$(".questionField").hide();
@@ -97,13 +119,12 @@ $(document).ready(function(){
 			$(".Option").show();
 	        $(".questionField").show();
 	        $("#question").html(questions[count]);
-	  		$("#Option1").html(option1[count]);
-	  		$("#Option2").html(option2[count]);
-	  		$("#Option3").html(option3[count]);
-	  		$("#Option4").html(option4[count]);
+	  		$("#0").html(option1[count]);
+	  		$("#1").html(option2[count]);
+	  		$("#2").html(option3[count]);
+	  		$("#3").html(option4[count]);
 			}
 	});
-
 
 
 }); //goes to document ready

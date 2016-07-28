@@ -86,3 +86,13 @@ p {
 }
 
 .Option:hover, .Option:active {background: red;}
+
+.giffy {
+	position: relative;
+	left: 680px;
+	top: -300px;
+	width: 250px;
+	height: 250px;
+	background-color: #999999;
+	text-align: center;
+}
