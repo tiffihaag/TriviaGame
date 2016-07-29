@@ -68,6 +68,12 @@ $(document).ready(function(){
 		"assets/images/elvischip.gif"
 		];
 
+	var timeLeft = 15;
+
+	var timeout = "";
+
+	var timerId = "";
+
 	//Start button & Questions
 	$("#start").click(function(){
         $("#start").hide();
@@ -78,6 +84,9 @@ $(document).ready(function(){
   		$("#1").html(option2[count]);
   		$("#2").html(option3[count]);
   		$("#3").html(option4[count]);
+  		timerId = setInterval(countdown, 1000);
+  		timeout = setTimeout(timeUp, 1000 * 15);
+  		$("#timer").html('15');
     });
 
 	//Check to see if correct
@@ -88,44 +97,67 @@ $(document).ready(function(){
 		
 		$(".giffy").show();
 		$(".giffy").html('<img src="'+ prettyPic[count] + '" height= "200"; width= "230">');
+		clearTimeout(timeout);
 
 		if (selected == answer[count]) {
-			//put gif in here
 			$("<h3> Correct </h3>").prependTo(".giffy");
-			//var prettyPic = ".GIF" + count;
-			//$(prettyPic).appendTo(".giffy");
-			//put pause here
 			count++;
 		}
 		else {
 			$("<h3> Wrong </h3>").prependTo(".giffy");
+			var displayAnswer = answer[count] + 1;
+			$("<h3> Answer is # " + displayAnswer + "</h3>").appendTo(".giffy");
 			count++;
 		}
-
-		//Check to see it's the last question
 	});	
 
+	//Check to see it's the last question
 	$(".giffy").click(function(){ 
 		$(".giffy").hide();
 		$(".giffy").empty();
-			if(count == questions.length) {
-				$(".Option").hide();
-       			$(".questionField").hide();
-       			$("#question").hide();
-       			alert("Game Over");
-       			window.location.reload(false);
-			}
-			else {
-			$(".Option").show();
-	        $(".questionField").show();
-	        $("#question").html(questions[count]);
-	  		$("#0").html(option1[count]);
-	  		$("#1").html(option2[count]);
-	  		$("#2").html(option3[count]);
-	  		$("#3").html(option4[count]);
-			}
+		timeLeft = 15;
+		timeUp();
 	});
 
+	function timeUp(){
+		if(count >= questions.length) {
+			$(".Option").hide();
+			$(".questionField").hide();
+			$("#question").hide();
+			alert("Game Over");
+			window.location.reload(false);
+			}
+
+		else {
+			$(".Option").show();
+			$(".giffy").hide();
+		    $(".questionField").show();
+		    $("#question").html(questions[count]);
+			$("#0").html(option1[count]);
+			$("#1").html(option2[count]);
+			$("#2").html(option3[count]);
+			$("#3").html(option4[count]);
+			clearTimeout(timeout);
+			timeout = setTimeout(timeUp, 1000 * 15);
+	  		$("#timer").html('15');
+  		}
+	}
+
+	function countdown() {
+	  if (timeLeft == 0) {
+	    clearTimeout(timeout);
+	    count++;
+	    timeLeft = 15;
+	    console.log(count);
+	    timeUp();
+	  }
+
+	  else {
+	  	$("#timer").empty;
+	    $("#timer").html(timeLeft);
+	    timeLeft--;
+	  }
+	}
 
 }); //goes to document ready
 	

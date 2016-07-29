@@ -3,6 +3,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-color: black;
+	height: 960px;
 }
 
 .trivia {
@@ -90,9 +91,13 @@ p {
 .giffy {
 	position: relative;
 	left: 680px;
-	top: -300px;
+	top: -325px;
 	width: 250px;
-	height: 250px;
+	height: 285px;
 	background-color: #999999;
 	text-align: center;
+}
+
+#timer {
+	color: white;
 }
